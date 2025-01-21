@@ -6,71 +6,74 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
-    public function showRegistrationForm()
+    public function index()
     {
-        return view('Auth.register');
-    }
-    
-    public function process(Request $request)
-    {
-    $validator = Validator::make($request->all(), [
-        'name' => 'required',
-        'email' => 'required|unique:users,email',
-        'password' => 'required',
-        'passwordConfirm' => 'required|same:password'
-    ]);
-    
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+        return view('auth.login', [
+            'title' => 'Login',
+        ]);
     }
 
-    User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-    ]);
-    
-    return redirect()->route('login')->with('success', 'Registrasi Berhasil!!');
-    }
-
-    
-    // Menampilkan halaman Login
-    public function showLoginForm() 
+    public function authenticate(Request $request)
     {
-        return view('Auth.login');
-    }
-
-    public function login(Request $request){
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended($this->redirectTo());
+            $request->session()->regenerate();
+
+            $user = Auth::user();
+            if ($user->role == 'admin') {
+                Alert::success('Success', 'Login success!');
+                return redirect()->intended('/Admin/welcome');
+            } elseif ($user->role == 'pelanggan') {
+                Alert::success('Success', 'Login success!');
+                return redirect()->intended('/User/home');
+            }
         }
-        return redirect()->back()->withErrors(['email', 'password' => 'Email atau Password Anda Salah, Mohon periksa Kembali!'])->withInput();
+
+        Alert::error('Error', 'Mohon Periksa email dan password anda!');
+        return redirect('/login')->withInput();
     }
 
-    protected function redirectTo() {
-        $role = Auth::user()->role;
-        if ($role === 'admin') {
-            return '/Admin/welcome';
-        } elseif ($role === 'pelanggan') {
-            return '/User/home';
-        }
-        return '/';
+    public function register()
+    {
+        return view('auth.register', [
+            'title' => 'Register',
+        ]);
+    }
+
+    public function process(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users|email',
+            'password' => 'required|min:6',
+            'passwordConfirm' => 'required|same:password'
+        ]);
+
+        $validated['password'] = Hash::make($request['password']);
+        $validated['role'] = 'pelanggan'; // Set default role to user
+
+        $user = user::create($validated);
+
+        Alert::success('Success', 'Register pelanggan berhasil!');
+        return redirect('/login');
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
+        Alert::success('Success', 'Logout berhasil!');
         return redirect('/');
     }
-    
+
 }

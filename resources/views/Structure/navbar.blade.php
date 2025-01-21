@@ -25,18 +25,29 @@
     <!-- Theme style  -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <!-- Modernizr JS -->
     <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
     <!-- FOR IE9 below -->
     <!-- [if lt IE 9]> -->
     <!-- <script src="js/respond.min.js"></script> -->
-    <!-- <![endif]-->
+    <!-- [endif] -->
     <style>
         .fh5co-nav ul li a:hover {
             color: #ff6600;
             /* Ganti warna sesuai kebutuhan */
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.menu-wrap ul li').click(function() {
+                $('.menu-wrap ul li').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
 
 </head>
 
@@ -53,20 +64,21 @@
                     </div>
                     <div class="col-xs-12 text-center menu-1 menu-wrap">
                         <ul>
-                            <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             <li class="has-dropdown">
-                                <a href="gallery.html">Menu</a>
+                                <a href="/">
+                                    Menu <i class="fas fa-chevron-down"></i>
+                                </a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Events</a></li>
-                                    <li><a href="#">Food</a></li>
-                                    <li><a href="#">Coffees</a></li>
+                                    @foreach ($category as $item)
+                                    <li><a href="/menu/{{ $item->slug}}" class="dropdown-item">{{ $item->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
-                            <li><a href="{{ route('reservation') }}">Reservation</a></li>
-                            <li><a href="https://api.whatsapp.com/send?phone=6281260899294">Live Chat</a></li>
-                            <li><a href="{{ route('reservation') }}">Reservation</a></li>
-                            <li><a href="{{ route('location') }}">Lokasi</a></li>
-                            <li><a href="{{ route('ulasan') }}">Ulasan</a></li>
+                            <li><a href="/pesanan" class="nav-item nav-link">Daftar Pesanan</a></li>
+                            <li><a href="{{ route('reservation') }}">Reservasi</a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=6281361175877">Hubungi Kami</a></li>
+                            <li><a href="{{ route('masukan') }}">Ulasan</a></li>
                             <li style="position: fixed; right: 10px;">
                                 @if (Auth::check())
                                 <form action="{{ route('logout') }}" method="POST">
@@ -74,10 +86,10 @@
                                     <button type="submit" class="btn btn-primary px-3">Logout</button>
                                 </form>
                                 @else
-                                <button type="button" onclick="location.href='{{ route('login') }}'" class="btn btn-primary px-3">Login</button>
+                                <button type="button" onclick="location.href='{{ route('login') }}'" class="btn btn-primary px-3">Login/Register</button>
                                 @endif
-
                             </li>
+
                         </ul>
                     </div>
                 </div>

@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\homeController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\LocationController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,28 +19,61 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/', [homeController::class, 'Userhome'])->name('home');
-Route::get("/User/home", [homeController::class, 'Userhome'])->name('User.home')->middleware('auth');
+Route::get('/', [FrontEndController::class, 'Userhome'])->name('home');
+Route::get("/User/home", [FrontEndController::class, 'Userhome'])->name('User.home')->middleware('auth');
 
-// Route registrasi
-Route::get('/register', 'App\Http\Controllers\AuthController@showRegistrationForm')->name('register');
-Route::post('/register', 'App\Http\Controllers\AuthController@process')->name('register.process');
-
-// Route login
-Route::get('/login', 'App\Http\Controllers\AuthController@showLoginForm')->name('login');
-Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('login.process');
-
-//Route Logout
+Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'authenticate']);
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'process']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('/change-password', [AuthController::class, 'changePassword']);
+// Route::post('/change-password', [AuthController::class, 'processChangePassword']);
 
-// Route Reservation
 Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
-Route::post('/reservation', 'App\Http\Controllers\ReservationController@store')->name('reservation.store');
+Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 
-//Route Ulasan
-Route::get('/ulasan', 'App\Http\Controllers\UlasanController@UserUlasan')->name('User.ulasan');
-Route::post('/ulasan', 'App\Http\Controllers\UlasanController@ulasan')->name('ulasan');
+Route::get('/masukan', [FeedbackController::class, 'UserFeedback'])->name('User.masukan');
+Route::post('/masukan', [FeedbackController::class, 'feedback'])->name('masukan');
 
-//Route Lokasi
-Route::get('/location', 'App\Http\Controllers\LocationController@show')->name('location');
+Route::get('/pesanan', [FrontendController::class, 'pesanan'])->name('pesanan');
+Route::post('/addpesanan', [FrontEndController::class, 'addpesanan'])->name('addpesanan');
+Route::get('/menu/{slug}',[FrontEndController::class, 'Category'])->name('category');
+Route::get('/search', [FrontEndController::class, 'search'])->name('search');
+
+Route::group(['middleware' => 'admin'], function () {
+    //Admin
+    Route::get('/Admin/welcome', function () {
+        return view('Admin/welcome');
+    });
+
+    Route::get('/all/pesanan', [FrontEndController::class, 'AllPesanan'])->name('all.pesanan');
+    Route::get('/all/pesanan/{id}', [FrontEndController::class, 'statuspemesanan'])->name('status');
+
+
+    // Routes for CategoryController
+    Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+    Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+    Route::resource('/post', PostController::class);
+
+});
+
+Route::delete('/pesanan/{id}', [FrontEndController::class, 'deletePesanan'])->name('delete.pesanan');
+Route::get('/admin/sale/create', [SaleController::class, 'create'])->name('admin.sale.create');
+Route::get('/admin/sale', [SaleController::class, 'index'])->name('admin.sale');
+Route::post('/admin/sale', [SaleController::class, 'store'])->name('sale.store');
+Route::get('/admin/sale/{id}', [SaleController::class, 'show'])->name('sale.show');
+Route::get('/admin/sale/{id}/edit', [SaleController::class, 'edit'])->name('sale.edit');
+Route::put('/admin/sale/{id}', [SaleController::class, 'update'])->name('sale.update');
+Route::delete('/admin/sale/{id}', [SaleController::class, 'destroy'])->name('sale.destroy');
+

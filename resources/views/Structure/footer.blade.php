@@ -2,37 +2,37 @@
 		<div class="container">
 			<div class="row row-pb-md">
 				<div class="col-md-4 fh5co-widget">
-					<h4>Roiyall Coffee</h4>
-					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+					<h2 style="color: white;">Roiyall Coffee</h2>
+					<p style="color: white;">Always Serve You A Good Coffee Everyday.</p>
 				</div>
-				<div class="col-md-2 col-md-push-1 fh5co-widget">
-					<h4>Links</h4>
+				<!-- <div class="col-md-2 col-md-push-1 fh5co-widget">
+					<h4>About Barista</h4>
 					<ul class="fh5co-footer-links">
 						<li><a href="#">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Menu</a></li>
 						<li><a href="#">Gallery</a></li>
 					</ul>
-				</div>
+				</div> -->
 
-				<div class="col-md-2 col-md-push-1 fh5co-widget">
-					<h4>Categories</h4>
-					<ul class="fh5co-footer-links">
-						<li><a href="#">Landing Page</a></li>
-						<li><a href="#">Real Estate</a></li>
-						<li><a href="#">Personal</a></li>
-						<li><a href="#">Business</a></li>
-						<li><a href="#">e-Commerce</a></li>
-					</ul>
-				</div>
+					<!-- <div class="col-md-2 col-md-push-1 fh5co-widget">
+						<h4>Categories</h4>
+						<ul class="fh5co-footer-links">
+							<li><a href="#">Landing Page</a></li>
+							<li><a href="#">Real Estate</a></li>
+							<li><a href="#">Personal</a></li>
+							<li><a href="#">Business</a></li>
+							<li><a href="#">e-Commerce</a></li>
+						</ul>
+					</div> -->
 
 				<div class="col-md-4 col-md-push-1 fh5co-widget">
-					<h4>Contact Information</h4>
+					<h4>Kontak & Informasi </h4>
 					<ul class="fh5co-footer-links">
-						<li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-						<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-						<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-						<li><a href="http://https://freehtml5.co">freehtml5.co</a></li>
+						<li style="color: white;">Jl. Sm Raja No.270, Siborong Borong I,<br> Kec. Siborongborong, Kab. Tapanuli Utara, <br>Sumatera Utara 22474</li>
+						<li><a href="https://api.whatsapp.com/send?phone=6282284471634">Click for WhatsApp</a></li>
+						<li><a href="https://www.instagram.com/roiyall_coffee_sbb?igsh=MXYyYzh1ODJ2bmNuNw==">@roiyall_coffee_sbb</a></li>
+						<!-- <li><a href="http://https://freehtml5.co">freehtml5.co</a></li> -->
 					</ul>
 				</div>
 
@@ -41,24 +41,23 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+						<small class="block">&copy;Teknologi Informasi -- Fakultas Vokasi  2024/2025.</small>
+						<small class="block">&copy;Design By: KELOMPOK 5 PA 1.</small>
+						<!-- <h6 style="color: gold;" class="block"><a href="https://www.instagram.com/santoomrtg_?igsh=Y3o0MzAxd2ZianV1">Designed by:</a> KELOMPOK 5 PA 1</a></h6> -->
 					</p>
-					<p>
 					<ul class="fh5co-social-icons">
 						<li><a href="#"><i class="icon-twitter2"></i></a></li>
 						<li><a href="#"><i class="icon-facebook2"></i></a></li>
-						<li><a href="#"><i class="icon-linkedin2"></i></a></li>
-						<li><a href="#"><i class="icon-dribbble2"></i></a></li>
+						<li><a href="https://www.instagram.com/roiyall_coffee_sbb?igsh=MXYyYzh1ODJ2bmNuNw=="><i class="icon-instagram2"></i></a></li>
 					</ul>
-					</p>
+					
 				</div>
 			</div>
 
 		</div>
 	</footer>
     <div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+		<a href="#" class="js-gotop" style="background-color: gold; color:white"><i class="icon-arrow-up22"></i></a>
 	</div>
 
 	<!-- jQuery -->
@@ -75,6 +74,8 @@
 	<script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
 	<!-- Main -->
 	<script src="{{ asset('js/main.js') }}"></script>
+    @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

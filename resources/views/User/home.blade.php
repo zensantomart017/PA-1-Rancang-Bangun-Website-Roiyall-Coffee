@@ -1,13 +1,14 @@
 @include('Structure.navbar')
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(/images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
+@include('sweetalert::alert')
+
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(/images/foto1.jpg);" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<div class="js-fullheight">
 						<div class="display-tc js-fullheight" data-animate-effect="fadeIn">
-							<h1>The Best Coffee Shop<em> &amp; </em> Cafe <em>in</em> Siborong-Borong</h1>
-							<h2>M o t t o: <a href="" target="_blank">Enjoy Your Life</a></h2>
+							<h1>Always Serve You A <em></em> Good Coffee Everyday</h1>
+							<h2>Kamu dan kopi adalah dua hal yang sama. Sama-sama bikin aku jatuh cinta</h2>
 						</div>
 					</div>
 				</div>
@@ -19,14 +20,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-pull-4 img-wrap" data-animate-effect="fadeInLeft">
-					<img src="{{ asset('images/hero_1.jpeg') }}" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
+					<img src="{{ asset('images/background.jpg') }}" alt=""  width="1000px"	>
 				</div>
 				<div class="col-md-5 col-md-push-1">
 					<div class="section-heading">
-						<h2>The Restaurant</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae neque quisquam at deserunt ab praesentium architecto tempore saepe animi voluptatem molestias, eveniet aut laudantium alias, laboriosam excepturi, et numquam? Atque tempore iure tenetur perspiciatis, aliquam, asperiores aut odio accusamus, unde libero dignissimos quod aliquid neque et illo vero nesciunt. Sunt!</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam iure reprehenderit nihil nobis laboriosam beatae assumenda tempore, magni ducimus abentey.</p>
-						<p><a href="#" class="btn btn-primary btn-outline">Our History</a></p>
+					<h2>Roiyall Coffee</h2>
+						<p style="color: white;">Roiyall Coffee bisa buat hari harimu lebih hangat dengan secangkir kopi dan sedikit makanan yang lezat</p>
+						<p style="color: white;">Kita bisa bikin hari mu yang boring jadi lebih berwarna dengan makanan dan minuman kita loh.</p>
 					</div>
 				</div>
 			</div>
@@ -36,192 +36,132 @@
 	<div id="fh5co-featured-menu" class="fh5co-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 fh5co-heading">
-					<h2>Today's Menu</h2>
+				<div class="col-md-12 fh5co-heading animate-box">
+					<h2>Detail Lokasi</h2>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam, itaque, nesciunt similique commodi omnis. Ad magni perspiciatis, voluptatum repellat.</p>
+						<iframe style="border:0; width: 230%; height: 300px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.8568991954885!2d98.96916137575116!3d2.207689658216599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e11af2b24f8dd%3A0xb1fa3136710e0d84!2sRoiyall%20Coffe!5e0!3m2!1sid!2sid!4v1713952545652!5m2!1sid!2sid" frameborder="0" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+				
+			<!--	<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
 					<div class="fh5co-item">
-						<img src="{{ asset('images/gallery_9.jpeg') }}" class="img-responsive" alt="">
-						<h3>Bake Potato Pizza</h3>
-						<span class="fh5co-price">$20<sup>.50</sup></span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						<img src="{{ asset('images/sanger.jpg') }}" class="img-responsive" alt="sanger">
+						<h3>Sanger</h3>
+						<span class="fh5co-price">Rp 10.000</span>
+						<p style="color: white;">Minum nih kopi di jamin bikin melek boskuuuu.</p>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
 					<div class="fh5co-item margin_top">
-						<img src="{{ asset('images/gallery_8.jpeg') }}" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
-						<h3>Salted Fried Chicken</h3>
-						<span class="fh5co-price">$19<sup>.00</sup></span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						<img src="{{ asset('images/minuman.jpg') }}" class="img-responsive" alt="minuman">
+						<h3>Caramel Macchiato</h3>
+						<span class="fh5co-price">Rp 25.000</span>
+						<p style="color: white;">If you looovee Caramel, then get this 😻.</p>
 					</div>
 				</div>
 				<div class="clearfix visible-sm-block visible-xs-block"></div>
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
 					<div class="fh5co-item">
-						<img src="{{ asset('images/gallery_7.jpeg') }}" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
-						<h3>Italian Sauce Mushroom</h3>
-						<span class="fh5co-price">$17<sup>.99</sup></span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						<img src="{{ asset('images/makan.jpg') }}" class="img-responsive" alt="makan">
+						<h3>Ayam Geprek with Rice</h3>
+						<span class="fh5co-price">Rp 20.000</span>
+						<p style="color: white;">Nih salah satu Menu andalan kita Nasi Ayam Geprek 🔥
+							Pedes gurih nya ga usah diragukan lagi.</p>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap">
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
 					<div class="fh5co-item margin_top">
-						<img src="{{ asset('images/gallery_6.jpeg') }}" class="img-responsive" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co">
-						<h3>Fried Potato w/ Garlic</h3>
-						<span class="fh5co-price">$22<sup>.50</sup></span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nihil cupiditate ut vero alias quaerat inventore molestias vel suscipit explicabo.</p>
+						<img src="{{ asset('images/tehsusu.jpg') }}" class="img-responsive" alt="tehsusu">
+						<h3>Milk Tea</h3>
+						<span class="fh5co-price">Rp 20.000</span>
+						<p style="color: white;"><br>Jangan hanya ngopi. Sesekali minum teh agar tahu hidup itu tidak hanya pahit, namun juga sepat</p>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div id="fh5co-featured-testimony" class="fh5co-section">
+	</div> -->
+	<!-- <div id="fh5co-featured-testimony" class="fh5co-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 fh5co-heading">
+				<div class="col-md-12 fh5co-heading animate-box">
 					<h2>Testimony</h2>
 					<div class="row">
 						<div class="col-md-6">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis! Doloribus aliquam voluptates corporis et tempora consequuntur ipsam, itaque, nesciunt similique commodi omnis.</p>
+							<p style="color: white;">Disini hanya tentang aku, hujan dan rindu. <br> Kita, seperti ketidaksengajaan yang diatur baik oleh Tuhan. 
+							<br>Bangun tidur nggak ngopi itu terasa ada salah satu rantai makanan yang hilang.</p>
 						</div>
 					</div>
 				</div>
 
-	<div id="fh5co-slider" class="fh5co-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="fh5co-heading">
-						<h2>Our Best <em>&amp;</em> Unique Menu</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ab debitis sit itaque totam, a maiores nihil, nulla magnam porro minima officiis!</p>
-					</div>
+				<div class="col-md-5 animate-box img-to-responsive animate-box" data-animate-effect="fadeInLeft">
+						<img src="{{ asset('images/testi.jpg') }}" alt="" width="500px">
 				</div>
-				<div class="col-md-6 col-md-push-1">
-					<aside id="fh5co-slider-wrwap">
-						<div class="flexslider">
-							<ul class="slides">
-								<li style="background-image: url(/images/gallery_7.jpeg);">
-									<div class="overlay-gradient"></div>
-									<div class="container-fluid">
-										<div class="row">
-											<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
-												<div class="slider-text-inner">
-													<div class="desc">
-														<h2>Crab <em>with</em> Curry Sources</h2>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt eveniet quae, numquam magnam doloribus eligendi ratione rem, consequatur quos natus voluptates est totam magni! Nobis a temporibus, ipsum repudiandae dolorum.</p>
-														<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li style="background-image: url(/images/gallery_6.jpeg);">
-									<div class="overlay-gradient"></div>
-									<div class="container-fluid">
-										<div class="row">
-											<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
-												<div class="slider-text-inner">
-													<div class="desc">
-														<h2>Tuna <em>&amp;</em> Roast Beef</h2>
-														<p>Ink is a free html5 bootstrap and a multi-purpose template perfect for any type of websites. A combination of a minimal and modern design template. The features are big slider on homepage, smooth animation, product listing and many more</p>
-														<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li style="background-image: url(/images/gallery_5.jpeg);">
-									<div class="overlay-gradient"></div>
-									<div class="container-fluid">
-										<div class="row">
-											<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
-												<div class="slider-text-inner">
-													<div class="desc">
-														<h2>Egg <em>with</em> Mushroom</h2>
-														<p>Ink is a free html5 bootstrap and a multi-purpose template perfect for any type of websites. A combination of a minimal and modern design template. The features are big slider on homepage, smooth animation, product listing and many more</p>
-														<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</aside>
+				<div class="col-md-7 animate-box" data-animate-effect="fadeInRight">
+					<blockquote>
+						<p>  Tempat kumpul anak Indamiaa Brother yang isi nya ganteng ganteng dan keren serta punya slogan,"Mordong Every day Every night Every time and Study" .</p>
+						. &rdquo;</p>
+						<p class="author"><cite>&mdash; Indamiaa Brother</cite></p>
+					</blockquote>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<div id="fh5co-blog" class="fh5co-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Events</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, consequatur. Aliquam quaerat pariatur repellendus veniam nemo, saepe, culpa eius aspernatur cumque suscipit quae nobis illo tempora. Eum veniam necessitatibus, blanditiis facilis quidem dolore! Dolorem, molestiae.</p>
-				</div>
-			</div>
+				<div class="col-md-7 col-md-offset-2 text-center fh5co-heading">
+					<h2>Menu Andalan</h2>
+					<p style="color: white;">Paling banyak dicari</p>
 			<div class="row">
 				<div class="col-md-4">
 					<div class="fh5co-blog">
-						<a href="#" class="blog-bg" style="background-image: url(/images/gallery_1.jpeg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(/images/red.jpg);"></a>
 						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Photoshoot On The Street</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
+							<h3><a style="color: gold;" href="#">Redvelvet with Bob's</a></h3>
+							<p style="color: white;">Anda suka dengan minuman yang berwarna? <br>Redvelvet With Bob's ini solusinya !!! <br> Membuat hari mu makin berwarna.</p>
+							<!-- <ul class="stuff">
 								<li><i class="icon-heart2"></i>1.2K</li>
 								<li><i class="icon-eye2"></i>2K</li>
 								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog">
-						<a href="#" class="blog-bg" style="background-image: url(/images/gallery_2.jpeg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(/images/taro.jpg);"></a>
 						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Surfing at Philippines</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
+							<h3><a href="#" style="color: gold;">Taros Boba</a></h3>
+							<p style="color: white;">Anda bosan dengan minuman polos? <br>Taros Boba ini solusinya !!! <br> Salah satu Best Drink yang yang tersedia di sini.</p>
+							<!-- <ul class="stuff">
 								<li><i class="icon-heart2"></i>1.2K</li>
 								<li><i class="icon-eye2"></i>2K</li>
 								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog">
-						<a href="#" class="blog-bg" style="background-image: url(/images/gallery_3.jpeg);"></a>
+						<a href="#" class="blog-bg" style="background-image: url(/images/coklat.jpg);"></a>
 						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Focus On Uderwater</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
+							<h3><a href="#" style="color: gold;">Chocolate with Bob's</a></h3>
+							<p style="color: white;">Anda suka dengan coklat, tapi harus ada boba-nya? <br>Chocolate with Bob's ini solusinya !!! <br> Minuman pengembali Mood.</p>
+							<!-- <ul class="stuff">
 								<li><i class="icon-heart2"></i>1.2K</li>
 								<li><i class="icon-eye2"></i>2K</li>
 								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div>
+							</ul> -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="fh5co-started" class="fh5co-section" style="background-image: url(/images/hero_1.jpeg);" data-stellar-background-ratio="0.5">
+	<!-- <div id="fh5co-started" class="fh5co-section" style="background-image: url(/images/background.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -232,6 +172,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 @include('Structure.footer')

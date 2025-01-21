@@ -22,14 +22,14 @@
   <div class="register-box">
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="/" class="h1">Roiyall Coffee</a>
+      <a href="/" class="h1"> <img src="images/logo.png" alt="" width="100px"> <br>Roiyall Coffee </a>
       </div>
       <div class="card-body mb-3">
         <p class="login-box-msg"></p>
         <form class="needs-validation" novalidate action="/register" method="POST">
           @csrf
           <div class="input-group mb-3">
-            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Full name" value="{{ old('name') }}" required>
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Nama Lengkap" value="{{ old('name') }}" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -62,7 +62,7 @@
             @enderror
           </div>
           <div class="input-group mb-3">
-            <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control @error('passwordConfirm') is-invalid @enderror" placeholder="Retype password" required>
+            <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control @error('passwordConfirm') is-invalid @enderror" placeholder="Confirm password" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -87,7 +87,7 @@
               <button type="submit" class="btn btn-primary btn-block">Register</button>
             </div>
           </div>
-          <a href="/login" class="text-center mb-3">Sudah Punya Akun? Login Disini</a>
+          <a>Sudah Punya Akun?</a><a href="/login" class="text-center mb-3"> Login Disini</a>
 
       </div>
 
